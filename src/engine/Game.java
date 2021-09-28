@@ -13,6 +13,8 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
 
 import javax.swing.JButton;
@@ -70,7 +72,9 @@ public class Game extends JPanel
 	{
 		Handler.optionSaver.saveOptions();
 		Handler.unloader.discoverWorlds();
-		Handler.CURRENT_WORLD = new File("D:/world1/");
+		Path currentRelativePath = Paths.get("");
+		String s = currentRelativePath.toAbsolutePath().toString();
+		Handler.CURRENT_WORLD = new File(s + "/saves/world1/");
 		ThePlayer p = new ThePlayer();
 		p.save();
 		Handler.globalKeys.addGlobalControls();
@@ -137,8 +141,8 @@ public class Game extends JPanel
 		
 		Handler.chunk.initChunks();
 		Updater update = new Updater();
-		
-		File theDir = new File("D:/world1");
+
+		File theDir = new File(s);
 
 		// if the directory does not exist, create it
 		if (!theDir.exists()) 

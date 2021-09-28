@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.RenderingHints.Key;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import chat.ChatManager;
 import engine.Camera;

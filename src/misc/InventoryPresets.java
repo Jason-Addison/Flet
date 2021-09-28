@@ -6,6 +6,7 @@ import javax.swing.JButton;
 
 import abovegroundtiles.TestFloat;
 import engine.Material;
+import entities.TallGrass;
 import furniture.StoneWallDouble;
 import furniture.WoodenDoorBottom;
 import gfx.InventoryManager;
@@ -99,7 +100,7 @@ public class InventoryPresets
      	InventoryManager.inventory[4][2].container = new Container(new Pebbles(), 999);
      	InventoryManager.inventory[3][2].container = new Container(new SmallChest(), 999);
      	InventoryManager.inventory[2][2].container = new Container(new OakStump(), 999);
-     	
+
      	InventoryManager.inventory[5][2].container = new Container(new OakSapling(), 999);
      	InventoryManager.inventory[6][2].container = new Container(new ItemStone(), 999);
      	InventoryManager.inventory[7][2].container = new Container(new Glass(), 999);

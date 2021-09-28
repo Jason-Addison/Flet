@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Random;
 
+import engine.Game;
 import engine.Handler;
 import engine.Test;
 import entities.Entity;
@@ -145,7 +146,7 @@ public class Chunk
 				{
 					g.drawImage(chunkMap[row][col].tileOnGround.getTexture(), row * Maps.tileScale + (int) Handler.cam.getX() + (((int) x) * (Maps.tileScale * 16)), col * Maps.tileScale + (int) Handler.cam.getY() + (((int) y) * (Maps.tileScale * 16)) + chunkMap[row][col].tile.getYOffset(), Maps.tileScale, Maps.tileScale + chunkMap[row][col].tile.getYScaleOffset(), null);
 				}
-				if(chunkMap[row][col].worldY < Player.swimPos.y)
+				if(chunkMap[row][col].worldY < Player.swimPos.y + Game.frame.getHeight() / 2)
 				{		
 					if(!chunkMap[row][col].tileOnGround.renderFirst())
 					{

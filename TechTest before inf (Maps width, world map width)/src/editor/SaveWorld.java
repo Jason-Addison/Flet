@@ -45,6 +45,8 @@ public class SaveWorld
 
 		// 1. Java object to JSON, and save into a file
 		try {
+			Path currentRelativePath = Paths.get("");
+			String s = currentRelativePath.toAbsolutePath().toString();
 			gson.toJson(a, new FileWriter("D:\\file.json"));
 			gson.toJson(obj, new FileWriter("D:\\file.json"));
 		} catch (JsonIOException e) {

@@ -8,6 +8,8 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import abovegroundtiles.FloatTile;
 import chunk.ChunkManager;
@@ -159,7 +161,9 @@ public class MouseManager implements MouseListener, MouseWheelListener
 	int yCT = 0;
 	public void tick()
 	{
-		File file = new File("D:/world1");
+		Path currentRelativePath = Paths.get("");
+		String s = currentRelativePath.toAbsolutePath().toString();
+		File file = new File(s + "/saves/world1/");
 		mouse.x = Handler.mouseX + -cam.getX() + 0;
 		mouse.y = Handler.mouseY + -cam.getY() + 0;
 		mouseTileX = (int) (Math.floor(mouse.x / Maps.tileScale));

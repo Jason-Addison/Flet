@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
@@ -80,7 +82,7 @@ public class ChunkManager
 		}
 		else
 		{
-			chunkY = (int) (Player.playerPosMem.y / Maps.tileScale / 16) + 0;
+			chunkY = (int) (Player.playerPosMem.y / Maps.tileScale / 16) - 0;
 		}
 		for(int row = 0; row < 3; row++)
 		{
@@ -503,7 +505,9 @@ public class ChunkManager
 	}
 	@Deprecated public void saveChunkOLD(Chunk chunk, int d, int e)
 	{
-		try (Writer writer = new FileWriter("D:/world1/chunk_" + d + "_" + e + ".json"))
+		Path currentRelativePath = Paths.get("");
+		String s = currentRelativePath.toAbsolutePath().toString();
+		try (Writer writer = new FileWriter(s + "/saves/world1/chunk_" + d + "_" + e + ".json"))
 		{
 			Gson gson = new GsonBuilder().create();
 	        //gson.toJson("Hello", writer);

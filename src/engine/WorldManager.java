@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +44,9 @@ public class WorldManager
 	int preY = 0;
 	public String parse(String input, int x, int y) 
 	{
-		String jsonn = Handler.util.deserializeString(new File("D:/world1/chunk_" + x + "_" + y +".json"));
+		Path currentRelativePath = Paths.get("");
+		String s = currentRelativePath.toAbsolutePath().toString();
+		String jsonn = Handler.util.deserializeString(new File(s + "/saves/world1/chunk_" + x + "_" + y +".json"));
 		JsonElement jelementt = new JsonParser().parse(jsonn);
 		JsonObject  jobjectj = jelementt.getAsJsonObject();
 	    
